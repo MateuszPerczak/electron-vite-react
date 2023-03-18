@@ -24,6 +24,9 @@ release
 *.sln
 *.sw?
 
+#cache
+.eslintcache
+
 #lockfile
 package-lock.json
 pnpm-lock.yaml
