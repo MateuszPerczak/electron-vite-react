@@ -1,10 +1,9 @@
-import { motion } from "framer-motion";
 import { FC } from "react";
 
 const App: FC = (): JSX.Element => {
   return (
     <main>
-      <span>HELLO ELECTRON 🤡</span>
+      <h1>HELLO</h1>
     </main>
   );
 };
