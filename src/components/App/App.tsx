@@ -1,10 +1,11 @@
-import { FC } from "react";
+import AppContent from "../appContent/AppContent";
+import AppProvider from "../appProvider/AppProvider";
 
-const App: FC = (): JSX.Element => {
+const App = (): JSX.Element => {
   return (
-    <main>
-      <h1>HELLO</h1>
-    </main>
+    <AppProvider>
+      <AppContent />
+    </AppProvider>
   );
 };
 
