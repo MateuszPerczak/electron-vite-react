@@ -10,6 +10,7 @@ const StyledWelcome = styled(motion.div)`
   font-size: clamp(1rem, 5vw, 4rem);
   .welcome-logo {
     max-width: clamp(10px, 10vw, 100px);
+    pointer-events: none;
   }
 `;
 
