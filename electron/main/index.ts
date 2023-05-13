@@ -26,6 +26,12 @@ if (!app.requestSingleInstanceLock()) {
 const initApp = async (): Promise<void> => {
   await app.whenReady();
 
+  ipcMain.on("show-dev-tools", (event) => {
+    const webContents = event.sender;
+    const win = BrowserWindow.fromWebContents(webContents);
+    win && win.webContents.openDevTools();
+  });
+
   const window: BrowserWindow = initMainWindow();
 
   // load app content
@@ -72,9 +78,3 @@ const appContent: AppContent = {
 };
 
 initApp();
-
-ipcMain.on("show-dev-tools", (event) => {
-  const webContents = event.sender;
-  const win = BrowserWindow.fromWebContents(webContents);
-  win && win.webContents.openDevTools();
-});
