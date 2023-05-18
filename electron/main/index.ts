@@ -26,18 +26,13 @@ if (!app.requestSingleInstanceLock()) {
 const initApp = async (): Promise<void> => {
   await app.whenReady();
 
-  ipcMain.on("show-dev-tools", (event) => {
-    const webContents = event.sender;
-    const win = BrowserWindow.fromWebContents(webContents);
-    win && win.webContents.openDevTools();
-  });
-
   const window: BrowserWindow = initMainWindow();
 
   // load app content
   appContent[env](window);
 
   configApp();
+  initApi();
 
   window.on("ready-to-show", () => onReadyToShow(window));
 };
@@ -53,6 +48,13 @@ const initMainWindow = (): BrowserWindow => {
     show: false,
     width: 1030,
     height: 630,
+  });
+};
+
+const initApi = (): void => {
+  ipcMain.on("show-dev-tools", ({ sender }) => {
+    const window = BrowserWindow.fromWebContents(sender);
+    window && window.webContents.openDevTools();
   });
 };
 
