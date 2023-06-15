@@ -17,8 +17,13 @@ export default defineConfig(() => {
         "@": path.join(__dirname, "src"),
       },
     },
+    build: {
+      target: "esnext",
+    },
     plugins: [
-      react(),
+      react({
+        jsxImportSource: "@emotion/react",
+      }),
       electron({
         include: ["electron"],
         plugins: [loadViteEnv()],
