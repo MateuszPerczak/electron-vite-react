@@ -9,6 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "noUncheckedIndexedAccess": true,
     "verbatimModuleSyntax": true,
     "module": "ESNext",
     "moduleResolution": "Node",
